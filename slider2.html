@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .scrollFrame{
+            width: 540px;
+            height: 360px;
+            border: 1px solid red;
+            position: relative;
+            overflow:hidden;
+        }
+        .scrollContent{
+            position: absolute;
+            border: 1px solid orangered;
+        }
+        .scrollContent img{
+            width: 540px;
+            height: 360px;
+            display: block;
+        }
+        .btns{
+            position: absolute;
+            right: 10px;
+            bottom: 0;
+        }
+        .btns li{
+            display: inline-block;
+            width:18px;
+            height: 18px;
+            background: #00aadf;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        li.spotlight{
+            background: #ff5300;
+        }
+    </style>
+</head>
+<body>
+<div class="scrollFrame">
+    <div class="scrollContent" id="scrollContent">
+        <img src="1.jpg">
+        <img src="2.jpg">
+        <img src="3.jpg">
+        <img src="4.jpg">
+    </div>
+    <ul class="btns">
+        <li class="spotlight"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+<script>
+    var scrollContent=document.querySelector(".scrollContent");
+    var imgObj=document.querySelector(".scrollFrame img");
+    var lis=document.querySelectorAll(".btns li");
+    autoPlay(0);
+    function autoPlay(index){
+        timer=setInterval(function(){
+            //scrollContent.style.top=-imgObj.offsetHeight*index+"px";
+            var frames=[
+             {"top":-(imgObj.offsetHeight*(index-1))+"px","opacity":0.4},
+             {"top":-(imgObj.offsetHeight*index)+"px","opacity":1}
+             ];
+             var timing={
+             duration:1000,
+             delay:0,
+             iterations:1,
+             direction:"normal",
+             easing:'ease-in-out',
+             fill:'forwards'
+             };
+            scrollContent.animate(frames,timing);
+            for(var i=0;i<lis.length;i++){
+                lis[i].className="";
+            }
+            lis[index].className="spotlight";
+            index++;
+            if(index==lis.length){
+                index=0;
+            }
+        },1500)
+    }
+</script>
+</html>
