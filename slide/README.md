@@ -1,9 +1,10 @@
 #Markdown m马克档格式
 
-| name       | age |
-|------------|-----|
-| Alice Wang | 18  |
-
+| name  |  sex  | age |
+|-------|-----|-----|
+| Alice Wang | female  | 18 |
+|Tony Lin| male| 48 |
+| William Zhang | male | 36 |
 
 
 
