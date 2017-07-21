@@ -9,6 +9,7 @@
 链接
 <a></a>
 [百度官网](https://www.baidu.com)
+![图片文字](http://img8.zol.com.cn/bbs/upload/22896/22895451.gif)
 
 <h1>h1</h1>
 # h1
